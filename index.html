@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Hospitality Grenada — Eat Like a Grenadian</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --warm-white: #FAF7F2;
+    --earth: #8B6914;
+    --earth-dark: #5C4410;
+    --terracotta: #C4683A;
+    --terracotta-light: #D4845A;
+    --sage: #6B7B5E;
+    --sage-light: #8A9B7A;
+    --charcoal: #2C2416;
+    --mid: #5A4E3C;
+    --gold: #C9A84C;
+    --linen: #EDE5D4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--warm-white);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* ── NAVIGATION ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.25rem 3rem;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(245,240,232,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(139,105,20,0.12);
+    transition: all 0.4s ease;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--earth-dark);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--terracotta); font-style: italic; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--terracotta); }
+  .nav-book {
+    background: var(--terracotta);
+    color: white !important;
+    padding: 0.6rem 1.5rem;
+    border-radius: 2px;
+    transition: background 0.3s !important;
+  }
+  .nav-book:hover { background: var(--earth) !important; color: white !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left {
+    background: var(--earth-dark);
+    display: flex; flex-direction: column;
+    justify-content: center;
+    padding: 10rem 5rem 5rem 6rem;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-left::after {
+    content: '';
+    position: absolute; top: 0; right: -60px; bottom: 0;
+    width: 120px;
+    background: var(--earth-dark);
+    clip-path: polygon(0 0, 40% 0, 100% 100%, 0 100%);
+    z-index: 3;
+  }
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.2rem, 5vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    color: rgba(245,240,232,0.6);
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+  }
+  .hero-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(245,240,232,0.78);
+    max-width: 380px;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--terracotta);
+    color: white;
+    padding: 1rem 2.5rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--gold); color: var(--charcoal); }
+  .btn-outline {
+    display: inline-block;
+    border: 1px solid rgba(245,240,232,0.4);
+    color: rgba(245,240,232,0.8);
+    padding: 1rem 2.5rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-right img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.88) saturate(1.1);
+  }
+  .hero-right::before {
+    content: '';
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(135deg, rgba(44,36,22,0.3) 0%, transparent 60%);
+  }
+  .hero-badge {
+    position: absolute; bottom: 3rem; right: 3rem; z-index: 2;
+    background: rgba(245,240,232,0.92);
+    backdrop-filter: blur(8px);
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+    border-top: 2px solid var(--terracotta);
+  }
+  .hero-badge-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--earth-dark);
+    line-height: 1;
+  }
+  .hero-badge-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-top: 0.25rem;
+  }
+
+  /* ── AS SEEN IN ── */
+  .press-bar {
+    background: var(--linen);
+    padding: 1.5rem 3rem;
+    display: flex; align-items: center; gap: 3rem;
+    border-bottom: 1px solid rgba(139,105,20,0.1);
+    overflow-x: auto;
+  }
+  .press-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .press-divider { width: 1px; height: 20px; background: rgba(139,105,20,0.25); flex-shrink: 0; }
+  .press-item {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--earth);
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-decoration: none;
+  }
+  .press-item:hover { color: var(--terracotta); }
+
+  /* ── SECTION HEADERS ── */
+  .section-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--earth-dark);
+  }
+  .section-title em { font-style: italic; color: var(--terracotta); }
+
+  /* ── EXPERIENCE OVERVIEW ── */
+  .experience-section {
+    padding: 7rem 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+  .experience-text .section-title { margin-bottom: 1.5rem; }
+  .experience-text p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--mid);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+  .experience-highlights {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .highlight-item {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+  }
+  .highlight-icon {
+    width: 32px; height: 32px; flex-shrink: 0;
+    background: var(--linen);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem;
+    margin-top: 0.1rem;
+  }
+  .highlight-text strong {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--earth-dark);
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+  }
+  .highlight-text span {
+    font-size: 0.88rem;
+    color: var(--mid);
+    font-weight: 300;
+  }
+  .experience-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 280px 200px;
+    gap: 12px;
+  }
+  .experience-images img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .experience-images img:first-child {
+    grid-row: span 2;
+    height: 100%;
+  }
+
+  /* ── MENUS ── */
+  .menus-section {
+    background: var(--earth-dark);
+    padding: 7rem 6rem;
+  }
+  .menus-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  .menus-header .section-title { color: var(--cream); }
+  .menus-header .section-tag { color: var(--gold); }
+  .menus-header p {
+    font-size: 1rem;
+    color: rgba(245,240,232,0.65);
+    margin-top: 1rem;
+    font-weight: 300;
+  }
+  .menus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .menu-card {
+    background: rgba(245,240,232,0.04);
+    border: 1px solid rgba(245,240,232,0.08);
+    padding: 3rem 2.5rem;
+    position: relative;
+    transition: all 0.4s ease;
+    cursor: default;
+  }
+  .menu-card:hover {
+    background: rgba(245,240,232,0.08);
+    border-color: rgba(201,168,76,0.3);
+  }
+  .menu-card.featured {
+    background: rgba(196,104,58,0.15);
+    border-color: rgba(196,104,58,0.4);
+  }
+  .menu-popular {
+    position: absolute; top: 1.5rem; right: 1.5rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--terracotta);
+    color: white;
+    padding: 0.3rem 0.6rem;
+  }
+  .menu-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: rgba(245,240,232,0.1);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .menu-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  .menu-tagline {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(245,240,232,0.1);
+  }
+  .menu-items { list-style: none; }
+  .menu-items li {
+    font-size: 0.9rem;
+    color: rgba(245,240,232,0.7);
+    padding: 0.55rem 0;
+    border-bottom: 1px solid rgba(245,240,232,0.05);
+    font-weight: 300;
+    display: flex; align-items: flex-start; gap: 0.5rem;
+  }
+  .menu-items li::before {
+    content: '·';
+    color: var(--terracotta);
+    font-size: 1.2rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .menu-items li small {
+    display: block;
+    font-size: 0.78rem;
+    color: rgba(245,240,232,0.45);
+    margin-top: 0.2rem;
+  }
+  .menu-note {
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    color: rgba(245,240,232,0.4);
+    font-style: italic;
+  }
+
+  /* ── GARDEN STRIP ── */
+  .garden-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: 320px;
+    overflow: hidden;
+  }
+  .garden-strip img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: brightness(0.85) saturate(1.1);
+    transition: filter 0.4s, transform 0.6s;
+  }
+  .garden-strip img:hover {
+    filter: brightness(1) saturate(1.2);
+    transform: scale(1.02);
+  }
+
+  /* ── WHAT'S INCLUDED ── */
+  .included-section {
+    padding: 7rem 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 6rem;
+    align-items: start;
+  }
+  .included-section .section-title { margin-bottom: 1rem; }
+  .included-section > div:first-child p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--mid);
+    font-weight: 300;
+    margin-top: 1rem;
+  }
+  .included-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .included-item {
+    background: var(--linen);
+    padding: 1.5rem;
+    border-left: 3px solid var(--terracotta);
+  }
+  .included-item strong {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--earth-dark);
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+  }
+  .included-item p {
+    font-size: 0.88rem;
+    color: var(--mid);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .dietary-note {
+    grid-column: span 2;
+    background: var(--cream);
+    padding: 1.25rem 1.5rem;
+    border-left: 3px solid var(--sage);
+    font-size: 0.88rem;
+    color: var(--mid);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .dietary-note strong { color: var(--sage); font-weight: 500; }
+
+  /* ── REVIEWS ── */
+  .reviews-section {
+    background: var(--linen);
+    padding: 7rem 6rem;
+  }
+  .reviews-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 3.5rem;
+  }
+  .reviews-header a {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    text-decoration: none;
+  }
+  .reviews-header a:hover { color: var(--earth); }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .review-card {
+    background: var(--warm-white);
+    padding: 2rem;
+    border-top: 2px solid var(--earth);
+  }
+  .review-stars {
+    color: var(--gold);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+  .review-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--charcoal);
+    margin-bottom: 1.25rem;
+    font-style: italic;
+  }
+  .review-author {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+  .review-author span { color: var(--terracotta); }
+
+  /* ── PRESS ── */
+  .press-section {
+    padding: 5rem 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .press-card {
+    background: var(--cream);
+    padding: 2.5rem;
+    border: 1px solid rgba(139,105,20,0.15);
+    position: relative;
+  }
+  .press-card::before {
+    content: '"';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 8rem;
+    line-height: 1;
+    color: rgba(196,104,58,0.12);
+    position: absolute;
+    top: 0.5rem; left: 1rem;
+    font-style: italic;
+  }
+  .press-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+    font-style: italic;
+    position: relative; z-index: 1;
+  }
+  .press-source {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--earth);
+    font-weight: 500;
+  }
+
+  /* ── CATERING ── */
+  .catering-section {
+    background: var(--sage);
+    padding: 5rem 6rem;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .catering-section .section-title { color: var(--cream); margin-bottom: 1rem; }
+  .catering-section .section-tag { color: var(--gold); }
+  .catering-section p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: rgba(245,240,232,0.8);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+  .catering-items {
+    list-style: none;
+    margin-bottom: 2rem;
+  }
+  .catering-items li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(245,240,232,0.15);
+    font-size: 0.9rem;
+    color: rgba(245,240,232,0.85);
+    display: flex; align-items: center; gap: 0.75rem;
+    font-weight: 300;
+  }
+  .catering-items li::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .catering-image {
+    position: relative;
+  }
+  .catering-image img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+  }
+  .catering-image::after {
+    content: '';
+    position: absolute;
+    bottom: -12px; right: -12px;
+    width: 100%; height: 100%;
+    border: 2px solid var(--gold);
+    z-index: -1;
+  }
+
+  /* ── BOOKING / CONTACT ── */
+  .booking-section {
+    padding: 7rem 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+  }
+  .booking-section .section-title { margin-bottom: 1.5rem; }
+  .booking-details {
+    list-style: none;
+    margin-bottom: 2.5rem;
+  }
+  .booking-details li {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(139,105,20,0.1);
+    font-size: 0.9rem;
+    color: var(--mid);
+    font-weight: 300;
+  }
+  .booking-details li strong {
+    min-width: 110px;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--earth-dark);
+    font-weight: 500;
+    padding-top: 0.05rem;
+    flex-shrink: 0;
+  }
+  .booking-ctas {
+    display: flex; flex-direction: column; gap: 0.75rem;
+  }
+  .btn-whatsapp {
+    display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+    background: #25D366;
+    color: white;
+    padding: 1.1rem 2.5rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.3s;
+    font-family: 'Jost', sans-serif;
+  }
+  .btn-whatsapp:hover { background: #1DAF55; }
+  .btn-email {
+    display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+    border: 1.5px solid var(--earth);
+    color: var(--earth-dark);
+    padding: 1.1rem 2.5rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-family: 'Jost', sans-serif;
+  }
+  .btn-email:hover { background: var(--earth); color: white; }
+  .booking-map-placeholder {
+    background: var(--linen);
+    border: 1px solid rgba(139,105,20,0.15);
+    height: 100%;
+    min-height: 350px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 3rem;
+  }
+  .map-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .booking-map-placeholder h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--earth-dark);
+    margin-bottom: 0.5rem;
+  }
+  .booking-map-placeholder p {
+    font-size: 0.88rem;
+    color: var(--mid);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .booking-map-placeholder a {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    text-decoration: none;
+  }
+  .booking-map-placeholder a:hover { color: var(--earth); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    padding: 3rem 6rem;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid rgba(245,240,232,0.08);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--cream);
+    letter-spacing: 0.04em;
+  }
+  .footer-logo span { color: var(--terracotta); font-style: italic; }
+  .footer-tagline {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+    margin-top: 0.25rem;
+  }
+  .footer-links { display: flex; gap: 2rem; list-style: none; flex-wrap: wrap; }
+  .footer-links a {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.5);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy {
+    font-size: 0.7rem;
+    color: rgba(245,240,232,0.3);
+    text-align: right;
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 8rem 2rem 4rem; }
+    .hero-left::after { display: none; }
+    .hero-right { height: 320px; }
+    .hero-badge { bottom: 1.5rem; right: 1.5rem; }
+    .experience-section, .included-section, .booking-section, .press-section {
+      grid-template-columns: 1fr; gap: 3rem; padding: 4rem 2rem;
+    }
+    .menus-section { padding: 4rem 2rem; }
+    .menus-grid { grid-template-columns: 1fr; }
+    .reviews-section { padding: 4rem 2rem; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .garden-strip { grid-template-columns: 1fr 1fr; height: 200px; }
+    .catering-section { grid-template-columns: 1fr; padding: 4rem 2rem; }
+    footer { padding: 2rem; flex-direction: column; text-align: center; }
+    .footer-copy { text-align: center; }
+    .reviews-header { flex-direction: column; gap: 1rem; align-items: flex-start; }
+    .experience-images { grid-template-rows: 200px 150px; }
+    .press-bar { padding: 1rem 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#" class="nav-logo">Home Hospitality <span>Grenada</span></a>
+  <ul class="nav-links">
+    <li><a href="#experience">The Experience</a></li>
+    <li><a href="#menus">Menus</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#catering">Catering</a></li>
+    <li><a href="#book" class="nav-book">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="hero-eyebrow">Mt. Parnassus · St. George's · Grenada</span>
+    <h1 class="hero-title">Eat Like a<br><em>Grenadian</em></h1>
+    <p class="hero-subtitle">Garden-to-Table Culinary Experience</p>
+    <p class="hero-desc">Step into a Grenadian home. Cook from the farm. Eat on the terrace. Leave with recipes, stories, and memories that last a lifetime.</p>
+    <div class="hero-cta">
+      <a href="#book" class="btn-primary">Reserve Your Experience</a>
+      <a href="#menus" class="btn-outline">View Menus</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://hhgnd.com/uploads/chef_kennedy_.jpg"
+         onerror="this.style.background='#3a2e1e'"
+         alt="Chef Kennedy at Home Hospitality Grenada">
+    <div class="hero-badge">
+      <div class="hero-badge-price">$135 <small style="font-size:1rem">USD</small></div>
+      <div class="hero-badge-label">per person + 10% service</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESS BAR -->
+<div class="press-bar">
+  <span class="press-label">As Featured In</span>
+  <div class="press-divider"></div>
+  <a href="https://suitcasemag.com/guide-grenada/" target="_blank" class="press-item">SUITCASE Magazine</a>
+  <div class="press-divider"></div>
+  <a href="https://www.insidehook.com/food-travel/why-every-food-lover-needs-visit-grenada" target="_blank" class="press-item">InsideHook</a>
+  <div class="press-divider"></div>
+  <a href="https://www.tripadvisor.com/Attraction_Review-g147296-d25296548-Reviews-Home_Hospitality_Grenada-St_George_s_Saint_George_Parish_Grenada.html" target="_blank" class="press-item">TripAdvisor</a>
+  <div class="press-divider"></div>
+  <a href="https://www.viator.com" target="_blank" class="press-item">Viator</a>
+</div>
+
+<!-- EXPERIENCE OVERVIEW -->
+<section class="experience-section" id="experience">
+  <div class="experience-text fade-in">
+    <span class="section-tag">The Culinary Experience</span>
+    <h2 class="section-title">A 3.5-hour journey into the heart of <em>Grenadian cuisine</em></h2>
+    <p>Hosted at our family home in Mount Parnassus, you'll walk our 1.25-acre farm, harvest ingredients straight from the soil, learn to cook Grenada's most beloved dishes, and sit down to a three-course meal on a terrace that overlooks the hills.</p>
+    <p>Led by Chef Kennedy — whose passion for Grenadian culture, history and seasonal cooking makes every conversation as nourishing as the food itself — this is an experience that feels less like a class and more like being welcomed into the family.</p>
+    <div class="experience-highlights">
+      <div class="highlight-item">
+        <div class="highlight-icon">🌿</div>
+        <div class="highlight-text">
+          <strong>Garden Tour</strong>
+          <span>Walk the farm, sampling herbs & seasonal produce</span>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">🥃</div>
+        <div class="highlight-text">
+          <strong>Rum Punch Tutorial</strong>
+          <span>Make your own batch using island spices & local flavours</span>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">👨‍🍳</div>
+        <div class="highlight-text">
+          <strong>Hands-on Cooking</strong>
+          <span>Interactive class guided by Chef Kennedy</span>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">🍽️</div>
+        <div class="highlight-text">
+          <strong>Three-Course Meal</strong>
+          <span>Fritters · Main · Nutmeg Ice Cream & herbal tea</span>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">🥥</div>
+        <div class="highlight-text">
+          <strong>Unlimited Drinks</strong>
+          <span>Fresh coconut water, local juice & rum punch all day</span>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">⏱️</div>
+        <div class="highlight-text">
+          <strong>3.5 Hours</strong>
+          <span>By reservation only · Private & intimate</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="experience-images fade-in">
+    <img src="https://hhgnd.com/uploads/2J2A8453.JPG"
+         onerror="this.src=''; this.style.background='#8B6914'"
+         alt="Chef Kennedy guiding guests in the garden">
+    <img src="https://hhgnd.com/uploads/2J2A3091.JPG"
+         onerror="this.src=''; this.style.background='#6B7B5E'"
+         alt="Fresh herbs and vegetables from the garden">
+    <img src="https://hhgnd.com/uploads/2J2A0529.JPG"
+         onerror="this.src=''; this.style.background='#C4683A'"
+         alt="Dining on the terrace">
+  </div>
+</section>
+
+<!-- PHOTO STRIP -->
+<div class="garden-strip">
+  <img src="https://hhgnd.com/uploads/2J2A0526.JPG"
+       onerror="this.style.background='#6B7B5E'"
+       alt="The farm garden at Home Hospitality Grenada">
+  <img src="https://hhgnd.com/uploads/2J2A3087.JPG"
+       onerror="this.style.background='#8B6914'"
+       alt="Cooking in the kitchen">
+  <img src="https://hhgnd.com/uploads/2J2A8583.JPG"
+       onerror="this.style.background='#C4683A'"
+       alt="Rum punch tutorial">
+  <img src="https://hhgnd.com/uploads/DJI_20260108100425_0387_D.JPG"
+       onerror="this.style.background='#5A4E3C'"
+       alt="Aerial view of the homestead">
+</div>
+
+<!-- MENUS -->
+<section class="menus-section" id="menus">
+  <div class="menus-header fade-in">
+    <span class="section-tag">Choose Your Experience</span>
+    <h2 class="section-title" style="color:var(--cream)">Three <em>iconic menus,</em><br>one unforgettable afternoon</h2>
+    <p>All menus include Saltfish Fritters, Rum Punch Tutorial, Garden Tour, Nutmeg Ice Cream, Herbal Tea, Fresh Coconut Water & Local Juice</p>
+  </div>
+  <div class="menus-grid fade-in">
+
+    <!-- OILDOWN -->
+    <div class="menu-card featured">
+      <span class="menu-popular">Most Popular</span>
+      <div class="menu-number">01</div>
+      <h3 class="menu-name">Oil Down</h3>
+      <p class="menu-tagline">Grenada's National Dish</p>
+      <ul class="menu-items">
+        <li>
+          <div>
+            Saltfish Fritters
+            <small>with Sweet & Spicy, Nutmeg & Tamarind, and Pepper sauces</small>
+          </div>
+        </li>
+        <li>
+          <div>
+            Grenadian Rum Punch Tutorial
+            <small>Local flavours & island spices</small>
+          </div>
+        </li>
+        <li>
+          <div>
+            Garden Tour
+            <small>Seasonal crops, herbs & fruit trees</small>
+          </div>
+        </li>
+        <li>
+          <div>
+            Oil Down — Grenada's National Dish
+            <small>Breadfruit, green bananas, dumplings, callaloo, pigtail, chicken & codfish simmered in coconut milk with turmeric</small>
+          </div>
+        </li>
+        <li>Nutmeg Ice Cream</li>
+        <li>
+          <div>
+            Herbal Tea
+            <small>Bay leaf, cinnamon & bergamot</small>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ROTI -->
+    <div class="menu-card">
+      <div class="menu-number">02</div>
+      <h3 class="menu-name">Roti</h3>
+      <p class="menu-tagline">From-Scratch Tradition</p>
+      <ul class="menu-items">
+        <li>
+          <div>
+            Saltfish Fritters
+            <small>with Sweet & Spicy, Nutmeg & Tamarind, and Pepper sauces</small>
+          </div>
+        </li>
+        <li>
+          <div>
+            Grenadian Rum Punch Tutorial
+            <small>Local flavours & island spices</small>
+          </div>
+        </li>
+        <li>
+          <div>
+            Garden Tour
+            <small>Seasonal crops, herbs & fruit trees</small>
+          </div>
+        </li>
+        <li>
+          <div>
+            Roti — Made From Scratch
+            <small>Mix & roll dough, grind peas, cook curried chicken & potatoes, finish skins on the tawa</small>
+          </div>
+        </li>
+        <li>Nutmeg Ice Cream</li>
+        <li>
+          <div>
+            Herbal Tea
+            <small>Bay leaf, cinnamon & bergamot</small>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- SEASONAL -->
+    <div class="menu-card">
+      <div class="menu-number">03</div>
+      <h3 class="menu-name">Seasonal Menu</h3>
+      <p class="menu-tagline">Farm Fresh & Vibrant</p>
+      <ul class="menu-items">
+        <li>
+          <div>
+            Saltfish Fritters
+            <small>with Sweet & Spicy, Nutmeg & Tamarind, and Pepper sauces</small>
+          </div>
+        </li>
+        <li>
+          <div>
+            Grenadian Rum Punch Tutorial
+            <small>Local flavours & island spices</small>
+          </div>
+        </li>
+        <li>
+          <div>
+            Garden Tour
+            <small>Seasonal crops, herbs & fruit trees</small>
+          </div>
+        </li>
+        <li>
+          <div>
+            Seasonal Main
+            <small>Rosemary turmeric rice · roasted seasonal veg · ground provisions · green salad · roasted chicken or creole fish</small>
+          </div>
+        </li>
+        <li>Nutmeg Ice Cream</li>
+        <li>
+          <div>
+            Herbal Tea
+            <small>Bay leaf, cinnamon & bergamot</small>
+          </div>
+        </li>
+      </ul>
+      <p class="menu-note">* Menu varies with what's in season from our farm</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="included-section fade-in" id="included">
+  <div>
+    <span class="section-tag">Included</span>
+    <h2 class="section-title">Everything you need for an <em>unforgettable</em> afternoon</h2>
+    <p>From the moment you arrive to the moment you leave, every detail is taken care of. All menus are fully adaptable to dietary needs — simply let us know when booking.</p>
+  </div>
+  <div class="included-grid">
+    <div class="included-item">
+      <strong>Garden Tour</strong>
+      <p>Guided walk through our working farm. Harvest, taste, and learn about Grenada's seasonal produce and traditions.</p>
+    </div>
+    <div class="included-item">
+      <strong>Rum Punch Tutorial</strong>
+      <p>Hands-on tutorial to make your own Grenadian rum punch using local flavours and island spices.</p>
+    </div>
+    <div class="included-item">
+      <strong>Interactive Cooking</strong>
+      <p>Chef-guided class preparing your chosen Grenadian dish from scratch using ingredients from our garden.</p>
+    </div>
+    <div class="included-item">
+      <strong>Three-Course Meal</strong>
+      <p>Saltfish fritters · your main dish · nutmeg ice cream and herbal tea, enjoyed on the terrace.</p>
+    </div>
+    <div class="included-item">
+      <strong>Unlimited Drinks</strong>
+      <p>Fresh coconut water, chilled local fruit juice and rum punch flow for the entire 3.5-hour experience.</p>
+    </div>
+    <div class="included-item">
+      <strong>Payment Options</strong>
+      <p>Cash accepted. Tap to pay on-site: Visa, Mastercard, digital wallet & smart watch.</p>
+    </div>
+    <div class="dietary-note">
+      <strong>Dietary Adaptations Welcome:</strong> All menus can be tailored at guest request — vegan, pescatarian, gluten-free and other substitutions are available. Please mention your requirements at the time of booking.
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section" id="reviews">
+  <div class="reviews-header">
+    <div>
+      <span class="section-tag">What Guests Say</span>
+      <h2 class="section-title">Rated <em>5 stars</em> on TripAdvisor & Viator</h2>
+    </div>
+    <a href="https://www.tripadvisor.com/Attraction_Review-g147296-d25296548-Reviews-Home_Hospitality_Grenada-St_George_s_Saint_George_Parish_Grenada.html" target="_blank">Read All Reviews →</a>
+  </div>
+  <div class="reviews-grid fade-in">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"If there's one thing you must do in Grenada, it's experiencing a garden-to-table meal with Chef Kennedy and the Home Hospitality Grenada family. The cooking process is immersive, the techniques bring an extra layer of richness to the meal, and the atmosphere is warm and friendly. It's truly a slice of Grenadian life you won't want to miss."</p>
+      <div class="review-author">Verified Guest · <span>TripAdvisor</span></div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"We have been to Grenada 4 times and this was one of our favourite experiences. During the meal, my five-year-old daughter proclaimed, 'This is the best lunch I've ever had!' The warm welcome, excellent conversation, and a garden tour where we smelled and tasted so many herbs and plants — I can't recommend it highly enough."</p>
+      <div class="review-author">Verified Guest · <span>TripAdvisor</span></div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"What a wonderful experience. The next 3.5 hours were the highlight of our vacation. Home Hospitality Grenada is run by a husband and wife team that worked in the hospitality industry for many years — and it shows. They went out of their way to make us feel welcomed in their home."</p>
+      <div class="review-author">Verified Guest · <span>TripAdvisor</span></div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Had such an amazing time at Home Hospitality last year that we had to go back this year! Even with high expectations it managed to exceed them. Fetching ingredients from the abundant garden whilst drinking the most delicious rum punch and learning so much about the culture. There is a strong possibility we will return to Grenada just to do this again!"</p>
+      <div class="review-author">Repeat Guest · <span>TripAdvisor</span></div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Every new country I visit I like to have an immersive cooking experience in someone's home. This was unlike any of my other experiences! Chef Kennedy is a consummate professional and ambassador. The history, politics, the garden, the food — you will love every moment."</p>
+      <div class="review-author">Verified Guest · <span>TripAdvisor</span></div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Our travel agent has been all over the world, stayed at countless resorts, and attended numerous excursions. She said this farm-to-table cooking class was one of her favorite experiences ever. This is a MUST DO experience when in Grenada. Ariel was incredibly diligent and proactive in making sure we were all squared away."</p>
+      <div class="review-author">Verified Guest · <span>Viator</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESS FEATURES -->
+<section class="press-section fade-in">
+  <div>
+    <span class="section-tag">Press & Media</span>
+    <h2 class="section-title">Recognised by the world's <em>leading</em> food & travel media</h2>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+    <div class="press-card">
+      <p class="press-quote">"If there's one culinary experience you need to book in Grenada, it's a cooking class and garden tour with Chef Kennedy Roberts at his home in Mt. Parnassus. It was a truly magical experience that's made me a Grenada cuisine fan for life."</p>
+      <span class="press-source">InsideHook — "Why Every Food Lover Needs to Visit Grenada"</span>
+    </div>
+    <div class="press-card">
+      <p class="press-quote">"An experience that feels more like visiting family friends than attending a class. You'll leave knowing far more about Grenada than you did when you arrived."</p>
+      <span class="press-source">SUITCASE Magazine — "A Breezy Guide to Caribbean Spice Isle Grenada"</span>
+    </div>
+  </div>
+</section>
+
+<!-- CATERING -->
+<section class="catering-section fade-in" id="catering">
+  <div>
+    <span class="section-tag">Additional Services</span>
+    <h2 class="section-title">Catering & <em>Special Orders</em></h2>
+    <p>Beyond our signature culinary experience, Chef Kennedy's kitchen is available for private catering and made-to-order specialities rooted in Grenadian tradition.</p>
+    <ul class="catering-items">
+      <li>Oil Down Catering — Grenada's national dish for private events, groups & celebrations</li>
+      <li>Crab Backs — a Grenadian delicacy, available upon request</li>
+    </ul>
+    <p style="font-size:0.85rem; margin-bottom:1.5rem;">All catering and special orders are available upon request. Please contact us directly to discuss your needs.</p>
+    <a href="mailto:info@hhgnd.com" class="btn-primary" style="display:inline-block">Enquire About Catering</a>
+  </div>
+  <div class="catering-image">
+    <img src="https://hhgnd.com/uploads/oil_down_.JPG"
+         onerror="this.style.background='#6B7B5E'"
+         alt="Oil Down — Grenada's national dish">
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking-section" id="book">
+  <div class="fade-in">
+    <span class="section-tag">Reserve Your Place</span>
+    <h2 class="section-title">Ready to <em>eat like</em> a Grenadian?</h2>
+    <ul class="booking-details">
+      <li><strong>Price</strong> $135 USD per person + 10% service charge</li>
+      <li><strong>Duration</strong> 3.5 hours</li>
+      <li><strong>Session Times</strong> Morning: 10:30 am – 2:00 pm &nbsp;·&nbsp; Evening: 4:30 pm – 8:00 pm &nbsp;<span style="font-size:0.82em;color:var(--terracotta);">Times flexible upon request</span></li>
+      <li><strong>Reservations</strong> By appointment only</li>
+      <li><strong>Location</strong> Mt. Parnassus, St. George's, Grenada</li>
+      <li><strong>Payment</strong> Cash · Visa · Mastercard · Digital Wallet · Smart Watch</li>
+      <li><strong>Contact</strong> info@hhgnd.com</li>
+      <li><strong>Instagram</strong> @hhgrenada</li>
+    </ul>
+    <div class="booking-ctas">
+      <a href="https://wa.me/14734097053?text=Hello%21%20I%27d%20love%20to%20book%20a%20Culinary%20Experience%20at%20Home%20Hospitality%20Grenada." class="btn-whatsapp" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Us to Book
+      </a>
+      <a href="mailto:info@hhgnd.com?subject=Culinary%20Experience%20Booking%20Enquiry" class="btn-email">
+        ✉ Email info@hhgnd.com
+      </a>
+    </div>
+  </div>
+  <div class="booking-map-placeholder fade-in">
+    <div class="map-icon">📍</div>
+    <h3>Mount Parnassus<br>St. George's, Grenada</h3>
+    <p>We are located in the hills above St. George's, a short drive from the city and easily accessible from the island's major hotels.</p>
+    <a href="https://maps.google.com/?q=Mt+Parnassus+St+Georges+Grenada" target="_blank">Get Directions on Google Maps →</a>
+    <div style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(139,105,20,0.15)">
+      <p style="font-size:0.78rem; color:var(--mid);">Transfers available from cruise port and select hotels (additional fee). Please enquire when booking.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Home Hospitality <span>Grenada</span></div>
+    <div class="footer-tagline">"Eat Like a Grenadian" · @hhgrenada</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#menus">Menus</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#catering">Catering</a></li>
+    <li><a href="https://instagram.com/hhgrenada" target="_blank">Instagram</a></li>
+    <li><a href="mailto:info@hhgnd.com">Email</a></li>
+  </ul>
+  <div class="footer-copy">
+    © 2025 Home Hospitality Grenada<br>
+    Mt. Parnassus, St. George's, Grenada
+  </div>
+</footer>
+
+<script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Sticky nav shadow on scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    nav.style.boxShadow = window.scrollY > 20
+      ? '0 2px 20px rgba(44,36,22,0.12)'
+      : 'none';
+  });
+</script>
+</body>
+</html>
